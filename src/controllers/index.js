@@ -1,4 +1,6 @@
-const express = require("express");
+
+const express = require('express');
+const signup = require('./signup');
 
 const router = express.Router();
 
@@ -7,6 +9,8 @@ const login = require("./login");
 
 router.get("/login", login.get);
 router.post('/login',login.post);
+router.get('/signup',signup.get);
+router.post('/signup',signup.post)
 router.use(error.client);
 router.use(error.server);
 

@@ -27,8 +27,10 @@ exports.post = (request, response) => {
             } else if (res === false) {
               response.render("login", { js: "login", msg: "error password" });
             } else {
-              response.cookie("jwt", cookie, HttpOnly);
+                console.log(cookie)
+              response.cookie('jwt', cookie);
               // res.render("login", { js: "login" });
+              response.end()
             }
           });
         }
