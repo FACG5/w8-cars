@@ -1,0 +1,16 @@
+<section class="container">
+    <form method="POST" action="/login">
+        <h3>{{msg}}</h3>
+        <label for="email">Email:
+            <input id="emails" type="email" name="email" required/>
+        </label>
+        <p id="emailErr" class="errorValid"></p>
+        <label for="password">Password:
+            <input id="passwords" type="password" required name="password" />
+        </label>
+        <p id="passErr" class="errorValid"></p>
+
+        <input class="fruit-form__btn" type="submit" value="Submit" id="login" />
+        <a href="/signup">Sign up</a>
+    </form>
+</section>
