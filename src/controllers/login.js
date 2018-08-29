@@ -7,6 +7,7 @@ exports.get = (req, res) => {
   res.render("login", { js: "login" });
 };
 
+
 exports.post = (request, response) => {
   const email = request.body.email;
   const password = request.body.password;
@@ -27,10 +28,8 @@ exports.post = (request, response) => {
             } else if (res === false) {
               response.render("login", { js: "login", msg: "error password" });
             } else {
-                console.log(cookie)
-              response.cookie('jwt', cookie);
-              // res.render("login", { js: "login" });
-              response.end()
+              response.cookie("jwt", cookie, { httpOnly: true });
+              response.redirect('/');
             }
           });
         }

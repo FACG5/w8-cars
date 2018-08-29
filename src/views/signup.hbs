@@ -2,17 +2,21 @@
   <form class="" action="/signup" method="POST">
     <h3>{{msg}}</h3>
     <label for="name"> Name
-      <input type="text" name="user_name" id="fname" required >
-    </label> <p id="fnamerr" class="errorValid"></p>
-        <label for="email">Email
+      <input type="text" name="user_name" id="fname" required>
+    </label>
+    <p id="fnamerr" class="errorValid"></p>
+    <label for="email">Email
       <input type="email" name="email" id="email" required>
-    </label><p id="emailerr" class="errorValid"></p>
+    </label>
+    <p id="emailerr" class="errorValid"></p>
     <label for="password">Password
-      <input type="password" name="password" id="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" >
-    </label><p id="passerr" class="errorValid"></p>
+      <input type="password" name="password" id="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+    </label>
+    <p id="passerr" class="errorValid"></p>
     <label for="confirmPassword">Confirm Password
-      <input type="Password" name="confirmPassword" id="confirmpassword" required >
-    </label><p id="confirmerr" class="errorValid"></p>
+      <input type="Password" name="confirmPassword" id="confirmpassword" required>
+    </label>
+    <p id="confirmerr" class="errorValid"></p>
     <input type="submit" name="adduser" value="Sgin Up" id="signup">
-    </form>
+  </form>
 </section>
