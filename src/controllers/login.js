@@ -1,15 +1,12 @@
 const { checkUser } = require("../database/queries/checkuser");
 const bcrypt = require("bcryptjs");
 const { sign } = require("jsonwebtoken");
-require("env2")("./config.env");
 
-exports.get = (req, res) => {
-  res.render("login", { js: "login" });
-
+exports.get = (request, response) => {
+  response.render("login", { js: "login" });
 };
 
-
-exports.post = (request, response) => {
+exports.post = (request, response,next) => {
   const email = request.body.email;
   const password = request.body.password;
   if (email && password) {
@@ -30,11 +27,11 @@ exports.post = (request, response) => {
               response.render("login", { js: "login", msg: "error password" });
             } else {
               response.cookie("jwt", cookie, { httpOnly: true });
-              response.redirect('/');
+              response.redirect("/home");
             }
           });
         }
       })
-      .catch(err => response.send(err));
+      .catch(err =>  next(err));
   }
 };
