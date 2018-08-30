@@ -5,6 +5,7 @@ require("env2")("./config.env");
 
 exports.get = (req, res) => {
   res.render("login", { js: "login" });
+
 };
 
 
