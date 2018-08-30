@@ -4,7 +4,9 @@ const exphbs = require("express-handlebars");
 const controllers = require("./controllers/index");
 const bodyParser = require("body-parser");
 const compression = require("compression");
+require("env2")("./config.env");
 const app = express();
+
 
 app.set("port", process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, "..", "public")));
