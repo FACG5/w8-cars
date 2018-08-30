@@ -1,10 +1,9 @@
-const displayHome = require("../database/queries/getdata");
+const {getCars} = require("../database/queries/getCars");
 
-exports.get = (req, res, next) => {
-  displayHome()
-    .then(result => {
-      const cars = result.rows;
-      res.render("homepage", { js: "home", cars });
+exports.get = (req, response, next) => {
+  getCars()
+    .then(res => {
+      response.render("homepage", { js: "home", res });
     })
     .catch(err => {
       next(err);

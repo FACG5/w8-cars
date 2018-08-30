@@ -5,7 +5,7 @@ exports.get = (req, res, next) => {
   displayCar(car)
     .then(result => {
       const info = result.rows[0];
-      return res.render("car", { js: "home", info });
+  res.render("car", { js: "home", info });
     })
     .catch(err => {
       next(err);

@@ -7,6 +7,7 @@ exports.verify = (req, res, next) => {
       if (err) {
         res.send("Fail");
       } else {
+        req.auth="auth";
         info = {
           userId: jwt.userId,
           user_name: jwt.user_name

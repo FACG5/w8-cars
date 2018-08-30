@@ -8,6 +8,7 @@ const login = require("./login");
 const homepage = require('./homepage');
 const car = require('./car');
 const home = require("./home");
+const ser = require("./ser");
 const auth = require("./auth");
 
 const router = express.Router();
@@ -18,6 +19,7 @@ router.get("/signup", signup.get);
 router.post("/login", login.post);
 router.post("/signup", signup.post);
 router.get('/',homepage.get);
+router.post('/ser',ser.post);
 
 router.get('/cars/:car',car.get);
 router.use(auth.verify);

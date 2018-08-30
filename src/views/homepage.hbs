@@ -1,17 +1,28 @@
 <nav class="navbar">
+  {{# if auth}}
+  <a class="navbar_link" href="/home">HOME</a>
+  {{else}}
   <a class="navbar_link" href="/login">log in</a>
+  <a class="navbar_link" href="/">HOME</a>
+  {{/if}}
 </nav>
 <section>
+  <form class="form" action="/ser" method="post">
+    <input class="form__input" type="text" name="title" id="title" placeholder="Enter title" required autocomplete="off">
+    <input class="form__btn" type="submit" value="Search" />
+  </form>
+
   <ul class="car_list" id="">
 
-    {{#each cars}}
-      <li class="car_item">
-        <h3 class="car_name">{{title}}</h3>
-        <a class="car_link" href="/cars/{{id}}"> <img class="car_img"src="{{img_car}}" alt="not found"> </a>
-        <div class="car_info">
-          <span>Price: {{price}}</span>
-        </div>
-      </li>
+    {{#each res}}
+    <li class="car_item">
+      <h3 class="car_name">{{title}}</h3>
+      <a class="car_link" href="/cars/{{id}}">
+        <img class="car_img" src="{{img_car}}" alt="not found"> </a>
+      <div class="car_info">
+        <span>Price: {{price}}</span>
+      </div>
+    </li>
 
     {{/each}}
 
