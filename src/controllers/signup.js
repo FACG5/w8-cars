@@ -5,7 +5,7 @@ exports.get = (req, res) => {
 };
 exports.post=(req,response)=>{
   const data=req.body;
-  const user_name=req.body.user_name;
+  const user_name=data.user_name;
   const email=data.email;
   const password=data.password;
 

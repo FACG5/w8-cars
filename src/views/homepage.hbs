@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <a class="navbar_link" href="/login">log in</a>
+</nav>
+<section>
+  <ul class="car_list" id="">
+
+    {{#each cars}}
+
+      <li class="car_item">
+        <h3 class="car_name">{{title}}</h3>
+        <a class="car_link" href="/{{id}}"> <img class="car_img"src="{{img_car}}" alt="not found"> </a>
+        <div class="car_info">
+          <span>Price: {{price}}</span>
+        </div>
+      </li>
+
+    {{/each}}
+
+  </ul>
+</section>
