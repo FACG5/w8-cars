@@ -1,15 +1,15 @@
 const { getCars } = require("../database/queries/getCars");
 const addcar = require("../database/queries/addCar");
 
-exports.get = (req, response) => {
+exports.get = (req, response,next) => {
   getCars()
     .then(res => {
-      response.render("home", { js: "home", res ,name: req.jwtinfo.user_name});
+      response.render("home", { js: "home", res, name: req.jwtinfo.user_name });
     })
-    .catch(err => response.send("error"));
+    .catch(err => next(err));
 };
 
-exports.post = (req, response) => {
+exports.post = (req, response, next) => {
   const data = req.body;
   const title = data.name;
   const image_url = data.image_url;
@@ -22,7 +22,7 @@ exports.post = (req, response) => {
         response.redirect("/home");
       })
       .catch(err => {
-        response.send("error");
+        next(err);
       });
   }
 };

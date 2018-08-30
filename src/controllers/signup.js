@@ -5,11 +5,11 @@ exports.get = (req, res) => {
   res.render("signup", { js: "signup" });
 };
 
-exports.post = (req, response) => {
-  const data = req.body;
-  const user_name = req.body.user_name;
-  const email = data.email;
-  const password = data.password;
+exports.post=(req,response)=>{
+  const data=req.body;
+  const user_name=data.user_name;
+  const email=data.email;
+  const password=data.password;
 
   if (user_name && email && password) {
     hashPassword(password, (err, hash) => {

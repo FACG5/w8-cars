@@ -6,7 +6,7 @@ exports.get = (request, response) => {
   response.render("login", { js: "login" });
 };
 
-exports.post = (request, response) => {
+exports.post = (request, response,next) => {
   const email = request.body.email;
   const password = request.body.password;
   if (email && password) {
@@ -32,6 +32,6 @@ exports.post = (request, response) => {
           });
         }
       })
-      .catch(err => response.send(err));
+      .catch(err =>  next(err));
   }
 };

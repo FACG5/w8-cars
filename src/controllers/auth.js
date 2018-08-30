@@ -11,7 +11,7 @@ exports.verify = (req, res, next) => {
           userId: jwt.userId,
           user_name: jwt.user_name
         };
-        req.jwtinfo = info 
+        req.jwtinfo = info ;
         next();
       }
     });
