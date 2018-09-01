@@ -3,7 +3,7 @@ const dbconnection = require("../db_connection");
 const search = (title) =>
   new Promise((resolve, reject) => {
     const sql = {
-      text: `SELECT * FROM car WHERE title LIKE $1`,
+      text: `SELECT * FROM car WHERE title ILIKE $1`,
       values: ['%'+title+'%']
     };
     dbconnection.query(sql, (err, res) => {
