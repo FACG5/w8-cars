@@ -10,18 +10,24 @@ const car = require('./car');
 const home = require("./home");
 const ser = require("./ser");
 const auth = require("./auth");
+const logout = require("./logout");
+
+
 
 const router = express.Router();
 
 router.use(cookieParser())
 router.get("/login", login.get);
 router.get("/signup", signup.get);
+
 router.post("/login", login.post);
 router.post("/signup", signup.post);
+
 router.get('/',homepage.get);
 router.post('/ser',ser.post);
-
+router.get('/logout', logout.signout);
 router.get('/cars/:car',car.get);
+
 router.use(auth.verify);
 router.get("/home", home.get);
 router.post("/home", home.post);
